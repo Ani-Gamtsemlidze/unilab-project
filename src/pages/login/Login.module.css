@@ -1,0 +1,32 @@
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.main {
+  width: 534px;
+  height: 550px;
+  background-color: #fff;
+  border-radius: 25px;
+  text-align: center;
+}
+.loginHeading {
+  margin: 27px 0 11px;
+}
+.loginHeading h1 {
+  color: #000;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.description {
+  color: #000;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: normal;
+}
