@@ -1,0 +1,44 @@
+.landingContainer {
+  background: url("../../assets/images/stars.png") no-repeat center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.imageContainer {
+  width: 164px;
+  height: 100px;
+}
+.imageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.titleContainer {
+  margin: 52px 0;
+}
+
+.titleContainer h1 {
+  color: #4980c0;
+  font-size: 96px;
+  font-weight: 400;
+  font-family: "Rowdies";
+}
+.landing_button {
+  border-radius: 7px;
+  width: 395px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: normal;
+  font-family: "Montserrat";
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  padding: 16px 0;
+  background: #4980c0;
+}
