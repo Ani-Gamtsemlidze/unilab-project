@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { UseFormContext } from "./context/useFormContext";
 import FormPage from "./pages/form/FormPage";
 import LandingPage from "./pages/landing/LandingPage";
 import Login from "./pages/login/Login";
@@ -23,7 +24,11 @@ const router = createBrowserRouter([
   },
 ]);
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <UseFormContext>
+      <RouterProvider router={router} />;
+    </UseFormContext>
+  );
 }
 
 export default App;

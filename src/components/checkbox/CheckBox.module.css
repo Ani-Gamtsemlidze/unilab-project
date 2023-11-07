@@ -1,0 +1,29 @@
+.checkBox {
+  position: absolute;
+  background-color: #fff;
+  width: 240px;
+  height: 280px;
+  left: 25px;
+  border-radius: 21px;
+  padding: 0 20px;
+}
+
+.status {
+  display: flex;
+  cursor: pointer;
+  margin: 20px 0;
+}
+.status img {
+  margin-right: 8px;
+}
+
+.gender {
+  display: flex;
+  cursor: pointer;
+  width: 55px;
+  margin: 20px 0;
+}
+
+.gender img {
+  margin-right: 8px;
+}
