@@ -1,0 +1,79 @@
+.nav {
+  margin: 17px;
+}
+.nav ul {
+  display: flex;
+  justify-content: center;
+}
+.nav li {
+  list-style: none;
+}
+.nav a {
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+/* .nav a:focus {
+    font-weight: 700;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 3px;
+  } */
+.nav img {
+  cursor: pointer;
+  /* width: 17px;
+    height: 17px; */
+  object-fit: contain;
+}
+
+.left {
+  position: absolute;
+  color: #fff;
+  /* left: 36%; */
+  /* top: 8px; */
+  font-size: 30px;
+
+  left: 8px;
+  width: 17px;
+  height: 17px;
+  object-fit: contain;
+}
+
+.right {
+  position: absolute;
+  right: 8px;
+  /* top: 8px; */
+  /* right: 36%; */
+  width: 17px;
+  height: 17px;
+  object-fit: contain;
+}
+
+/* .active {
+    color: black;
+  } */
+/* .nav a.active {
+    color: black;
+  } */
+
+.page_fluid {
+  justify-content: center;
+  display: flex;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 300px;
+}
+
+.container img {
+  cursor: pointer;
+}
+
+.arr {
+  color: red;
+  font-size: 30px;
+}
