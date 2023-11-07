@@ -1,0 +1,57 @@
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding: 20px 0 20px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 780px;
+  margin: 0 auto;
+}
+.filter {
+  background-color: #fff;
+  width: 170px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.filter p {
+  font-weight: 500;
+  margin-left: 35px;
+  font-weight: 600;
+}
+.filter img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  border-right: 1px solid #f2f2f2;
+  padding-right: 3px;
+}
+
+.search {
+  background-color: #fff;
+  width: 263px;
+  border-radius: 8px;
+  padding: 5px 0;
+}
+
+.search img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  margin-left: 9px;
+}
+
+.users {
+  display: flex;
+  justify-content: center;
+}
