@@ -3,35 +3,24 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import styles from "./Authentication.module.css";
 
-/**
- * in this code user enter information and if both of them is entered
- *
- * */
 export default function Authentication() {
-  const [isUserImage, setIsUserImage] = useState(false);
   const [isInfoEntered, setIsInfoEntered] = useState(false);
+  const [isUserImage, setIsUserImage] = useState(false);
   const [userName, setUserName] = useState("");
   const [userImage, setUserImage] = useState(
     localStorage.getItem("userImage") || uploadPhotoIcon
   );
   const navigate = useNavigate();
-  const userNameRef = useRef();
-  const userImageRef = useRef();
-
-  const enteredName = userNameRef.current?.value;
-  const enteredImage = userImageRef.current?.value;
 
   useEffect(() => {
-    setIsInfoEntered(userName && enteredImage);
-  }, [userName, enteredImage]);
+    setIsInfoEntered(userName && isUserImage);
+  }, [userName, isUserImage]);
 
   function handleImageChange(e) {
-    if (userImageRef.current) {
-      const file = e.target.files[0];
-      const imgUrl = URL.createObjectURL(file);
-      setIsUserImage(true);
-      setUserImage(imgUrl);
-    }
+    const file = e.target.files[0];
+    const imgUrl = URL.createObjectURL(file);
+    setIsUserImage(true);
+    setUserImage(imgUrl);
   }
 
   function handleNameInput(e) {
@@ -40,11 +29,10 @@ export default function Authentication() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    localStorage.setItem("name", enteredName);
-    localStorage.setItem("userImage", enteredImage);
-    setIsInfoEntered(false);
-    if (enteredName && enteredImage) {
-      setIsInfoEntered(true);
+    localStorage.setItem("userName", userName);
+    localStorage.setItem("userImage", userImage);
+
+    if (userName && isUserImage) {
       navigate("/form", { replace: true });
     }
   }
@@ -56,12 +44,7 @@ export default function Authentication() {
       onSubmit={handleSubmit}
     >
       <label className={styles.uploadImageLabel} htmlFor="file">
-        <input
-          id="file"
-          type="file"
-          onChange={handleImageChange}
-          ref={userImageRef}
-        />
+        <input id="file" type="file" onChange={handleImageChange} />
         <img
           className={isUserImage ? styles.userImage : styles.uploadIcon}
           alt="upload your photo"
@@ -74,7 +57,6 @@ export default function Authentication() {
       <input
         className={styles.userInput}
         id="user"
-        ref={userNameRef}
         type="text"
         placeholder="Your name"
         spellCheck="false"

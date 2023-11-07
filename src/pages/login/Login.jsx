@@ -8,7 +8,7 @@ export default function Login() {
         <div className={styles.loginHeading}>
           <h1>Get Started</h1>
         </div>
-        <p className={styles.description}>add photo</p>
+        <span className={styles.spanText}>add photo</span>
         <Authentication />
       </main>
     </div>

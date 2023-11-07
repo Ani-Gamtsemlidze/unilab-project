@@ -1,0 +1,99 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.navBar {
+  width: 100%;
+}
+.navBar ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 0 30px;
+}
+.formLink {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.cardLink {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+  border-right: 1px solid #ebebeb;
+  padding: 40px 20px;
+}
+
+.user {
+  display: flex;
+  margin: 20px 0;
+  align-items: center;
+  position: relative;
+}
+.userName {
+  margin: 0 32px;
+}
+
+.userName span {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 500;
+}
+.user img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  margin-right: 30px;
+  cursor: pointer;
+}
+.pop_up {
+  position: absolute;
+  width: 250px;
+  height: 150px;
+  border-bottom-left-radius: 13px;
+  border-bottom-right-radius: 13px;
+  background-color: #4980c0;
+  color: black;
+  right: 23px;
+  top: 50%;
+  transform: translateY(37%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: 0.4s;
+}
+.question {
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.cancelButton {
+  background: none;
+  padding: 8px;
+  font-size: 15px;
+  margin-right: 10px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+.logout {
+  text-decoration: none;
+  color: #4980c0;
+  font-weight: 700;
+  background-color: #ebebeb;
+  font-size: 15px;
+  padding: 8px;
+  border-radius: 5px;
+}
