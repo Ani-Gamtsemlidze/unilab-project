@@ -9,9 +9,9 @@ import Header from "../../layout/header/Header";
 import Pagination from "../../library/pagination/Pagination";
 // import Pagination from "../../library/pagination/Pagination";
 
-function UserCards({ lastElement }) {
+function UserCards() {
   const currentCount = 1;
-  const cardsCount = 10;
+  const cardsCount = 12;
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(currentCount);
@@ -61,7 +61,7 @@ function UserCards({ lastElement }) {
         <Cards cards={currentCards} loading={loading} />
       </main>
       <Pagination
-        total={total}
+        total={Math.round(cards.length / cardsCount)}
         cardPerPage={cardPerPage}
         currentPage={currentPage} // Pass the currentPage as a prop
         setCurrentPage={handlePageChange} // Pass the page change handler
