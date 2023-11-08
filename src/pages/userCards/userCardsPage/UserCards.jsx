@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./UserCards.module.css";
-import { useParams } from "react-router-dom";
-import Cards from "./Cards";
-import Header from "../../layout/header/Header";
-import Pagination from "../../library/pagination/Pagination";
+import Cards from "../cardsList/CardsList";
+import Header from "../../../layout/header/Header";
+import Pagination from "../../../library/pagination/Pagination";
 
 function UserCards() {
+  const BASE_URL = "https://jsonplaceholder.typicode.com/posts";
   const currentCount = 1;
   const cardsCount = 10;
   const [cards, setCards] = useState([]);
@@ -20,7 +20,7 @@ function UserCards() {
 
   const fetchUserData = async () => {
     try {
-      const res = await axios.get(`https://jsonplaceholder.typicode.com/posts`);
+      const res = await axios.get(`${BASE_URL}`);
       setCards(res.data);
       setLoading(false);
     } catch (error) {
@@ -49,7 +49,13 @@ function UserCards() {
     <>
       <Header currentPage={currentPage} setCurrentPage={handlePageChange} />
       <main className={styles.main}>
-        {loading ? <p>Loading...</p> : <Cards cards={currentCards} />}
+        {loading ? (
+          <div className={styles.loading}>
+            <p>Loading...</p>
+          </div>
+        ) : (
+          <Cards cards={currentCards} />
+        )}
       </main>
       <Pagination
         total={cards.length / cardsCount}

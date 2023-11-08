@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { UseFormContext } from "./context/useFormContext";
-import FormPage from "./pages/form/FormPage";
+import FormPage from "./pages/form/formPage/FormPage";
 import LandingPage from "./pages/landing/LandingPage";
-import Login from "./pages/login/Login";
-import UserCards from "./pages/userCards/UserCards";
+import Login from "./pages/login/loginPage/Login";
+import UserCards from "./pages/userCards/userCardsPage/UserCards";
 
 const router = createBrowserRouter([
   {

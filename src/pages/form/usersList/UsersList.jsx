@@ -3,10 +3,10 @@ import styles from "./UsersList.module.css";
 
 export default function UsersList({ usersList }) {
   return (
-    <section className={styles.listSection}>
-      <div className={styles.categories}>
+    <div className={styles.listSection}>
+      <section className={styles.categories}>
         <ul className={styles.categoriesList}>
-          <li>სტუდენტის სახელი და გვარი</li>
+          <li className={styles.name}>სტუდენტის სახელი და გვარი</li>
           <li>სტატუსი</li>
           <li>სქესი</li>
           <li>ქულები</li>
@@ -16,8 +16,8 @@ export default function UsersList({ usersList }) {
           <li>მისამართი</li>
           <li>დაბადების თარიღი</li>
         </ul>
-      </div>
-      <div className={styles.userList}>
+      </section>
+      <section className={styles.userList}>
         {usersList.map((item) => (
           <ul key={item.id_number} className={styles.item}>
             <li>{item.full_name}</li>
@@ -33,7 +33,7 @@ export default function UsersList({ usersList }) {
             <li>{item.birth_day}</li>
           </ul>
         ))}
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

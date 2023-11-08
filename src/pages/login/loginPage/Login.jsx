@@ -1,4 +1,4 @@
-import Authentication from "./authentication/Authentication";
+import Authentication from "../authentication/Authentication";
 import styles from "./Login.module.css";
 
 export default function Login() {

@@ -1,10 +1,10 @@
-import styles from "./Cards.module.css";
+import styles from "./CardsList.module.css";
 
-export default function Cards({ cards }) {
+export default function CardsList({ cards }) {
   return (
     <>
       {cards.map((card) => (
-        <div className={styles.card} key={card.id}>
+        <div key={card.id} className={styles.card}>
           <div className={styles.userId}>
             <p>{card.userId}</p>
           </div>

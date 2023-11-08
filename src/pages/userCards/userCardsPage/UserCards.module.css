@@ -1,0 +1,12 @@
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 40px 0 0 40px;
+}
+.loading {
+  margin: 0 auto;
+}
+.loading p {
+  color: #fff;
+  font-size: 30px;
+}
