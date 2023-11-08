@@ -11,7 +11,7 @@ import Header from "../../layout/header/Header";
 import Pagination from "../../library/pagination/Pagination";
 import CheckBox from "../../components/checkbox/CheckBox";
 import { UseForm } from "../../context/useFormContext";
-import { filterUsers } from "../../components/filter/FilterUsers";
+import filterUsers from "../../components/filter/FilterUsers";
 
 export default function FormPage() {
   const usersObject = users;
