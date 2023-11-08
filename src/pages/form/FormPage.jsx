@@ -11,7 +11,6 @@ import Header from "../../layout/header/Header";
 import Pagination from "../../library/pagination/Pagination";
 import CheckBox from "../../components/checkbox/CheckBox";
 import { UseForm } from "../../context/useFormContext";
-import FilterUsers from "../../components/filter/FilterUsers";
 export default function FormPage() {
   const usersObject = users;
   const currentCount = 1;
@@ -67,9 +66,41 @@ export default function FormPage() {
     };
   }, [isFilterActive, filterRef]);
 
+  const filterUsers = () => {
+    const usersByStatus = usersObject.filter((item) => {
+      if (item.status === "active" && activeChecked) {
+        return item;
+      }
+      if (item.status === "inactive" && inactiveChecked) {
+        return item;
+      }
+    });
+
+    const userByGender = usersByStatus.filter((item) => {
+      if (item.gender === "Female" && femaleChecked) {
+        return item;
+      }
+      if (item.gender === "Male" && maleChecked) {
+        return item;
+      }
+    });
+
+    const usersByString = userByGender.filter((item) => {
+      if (
+        item.full_name.toLowerCase().includes(searchField) ||
+        item.mail.toLowerCase().includes(searchField)
+      ) {
+        return true;
+      }
+      return false;
+    });
+
+    return usersByString;
+  };
+
   const filterResult = useMemo(() => {
     setCurrentPage(1);
-    return FilterUsers(
+    return filterUsers(
       usersObject,
       activeChecked,
       inactiveChecked,
