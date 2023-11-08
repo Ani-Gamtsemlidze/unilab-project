@@ -1,4 +1,4 @@
-export function filterUsers(
+export default function filterUsers(
   usersObject,
   activeChecked,
   inactiveChecked,
