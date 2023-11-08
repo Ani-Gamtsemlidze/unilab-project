@@ -11,8 +11,7 @@ import Header from "../../layout/header/Header";
 import Pagination from "../../library/pagination/Pagination";
 import CheckBox from "../../components/checkbox/CheckBox";
 import { UseForm } from "../../context/useFormContext";
-import filterUsers from "../../components/filter/FilterUsers";
-
+import FilterUsers from "../../components/filter/FilterUsers";
 export default function FormPage() {
   const usersObject = users;
   const currentCount = 1;
@@ -70,7 +69,7 @@ export default function FormPage() {
 
   const filterResult = useMemo(() => {
     setCurrentPage(1);
-    return filterUsers(
+    return FilterUsers(
       usersObject,
       activeChecked,
       inactiveChecked,

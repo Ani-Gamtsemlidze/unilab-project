@@ -12,6 +12,7 @@ function UseFormContext(props) {
   const [maleChecked, setMaleChecked] = useState(true);
 
   const [isFilterActive, setIsFilterActive] = useState(false);
+  const [searchField, setSearchField] = useState("");
 
   const toggleInactive = () => {
     setInactiveChecked(!inactiveChecked);
@@ -57,6 +58,7 @@ function UseFormContext(props) {
         toggleMale,
         handleStatus,
         handleGender,
+        searchField,
       }}
     >
       {props.children}
