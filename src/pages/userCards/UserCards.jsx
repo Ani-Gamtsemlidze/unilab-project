@@ -8,7 +8,7 @@ import Pagination from "../../library/pagination/Pagination";
 
 function UserCards() {
   const currentCount = 1;
-  const cardsCount = 12;
+  const cardsCount = 10;
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(currentCount);
@@ -38,11 +38,11 @@ function UserCards() {
   const currentCards = cards.slice(indexOfFirstCard, indexOfLastCard);
 
   function lastElement() {
-    setCurrentPage(currentCount);
+    setCurrentPage(cardsCount);
   }
 
   function firstElement() {
-    setCurrentPage(cardsCount);
+    setCurrentPage(currentCount);
   }
 
   return (
@@ -52,7 +52,7 @@ function UserCards() {
         {loading ? <p>Loading...</p> : <Cards cards={currentCards} />}
       </main>
       <Pagination
-        total={Math.round(cards.length / cardsCount)}
+        total={cards.length / cardsCount}
         cardPerPage={cardPerPage}
         currentPage={currentPage}
         setCurrentPage={handlePageChange}

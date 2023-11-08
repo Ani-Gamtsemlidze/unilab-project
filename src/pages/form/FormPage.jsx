@@ -5,8 +5,8 @@ import search from "../../assets/images/search.svg";
 
 import users from "../../userData/users.json";
 
-import { useState, useMemo } from "react";
-import Users from "./users/Users";
+import { useState, useMemo, useRef, useEffect } from "react";
+import Users from "./usersList/UsersList";
 import Header from "../../layout/header/Header";
 import Pagination from "../../library/pagination/Pagination";
 import CheckBox from "../../components/checkbox/CheckBox";
@@ -24,14 +24,14 @@ export default function FormPage() {
   const indexOfLastCard = currentPage * cardPerPage;
   const indexOfFirstCard = indexOfLastCard - cardPerPage;
 
-  const [isActive, setIsActive] = useState(false);
-
   const {
     activeChecked,
     inactiveChecked,
     femaleChecked,
     maleChecked,
     handleFilterActive,
+    setIsFilterActive,
+    isFilterActive,
   } = UseForm();
 
   const handlePageChange = (newPage) => {
@@ -40,11 +40,33 @@ export default function FormPage() {
 
   function firstElement() {
     setCurrentPage(currentCount);
-    // setIsActive(true);
   }
   function lastElement() {
     setCurrentPage(cardsCount);
   }
+
+  const filterRef = useRef(null);
+  const checkBoxRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (
+        isFilterActive &&
+        filterRef.current &&
+        !filterRef.current.contains(e.target) &&
+        checkBoxRef.current &&
+        !checkBoxRef.current.contains(e.target)
+      ) {
+        setIsFilterActive(false);
+      }
+    }
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [isFilterActive, filterRef]);
 
   const filterResult = useMemo(() => {
     setCurrentPage(1);
@@ -64,29 +86,39 @@ export default function FormPage() {
       <main className={styles.main}>
         <section className={styles.section}>
           <div>
-            <div onClick={handleFilterActive} className={styles.filter}>
+            <div
+              ref={filterRef}
+              onClick={handleFilterActive}
+              className={styles.filter}
+            >
               <img src={filter} />
               <p>filter</p>
             </div>
           </div>
-          <label>
+          <label className={styles.label}>
             <input
-              onChange={(e) => setSearchField(e.target.value)}
+              placeholder="search"
               className={styles.search}
+              type="text"
+              onChange={(e) => setSearchField(e.target.value)}
             />
             <img src={search} />
           </label>
         </section>
-        <CheckBox />
-        <Users usersList={forUser} />
+        <CheckBox ref={checkBoxRef} />
+        {filterResult.length ? (
+          <Users usersList={forUser} />
+        ) : (
+          <p style={{ color: "#fff", fontSize: "26px" }}>No Items Found</p>
+        )}
       </main>
       <Pagination
         total={Math.round(filterResult.length / cardsCount)}
-        isActive={isActive}
         setCurrentPage={handlePageChange}
         currentPage={currentPage}
         lastElement={lastElement}
         firstElement={firstElement}
+        filterResult={filterResult}
       />
     </>
   );

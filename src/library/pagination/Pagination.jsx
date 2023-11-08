@@ -11,26 +11,30 @@ function Pagination({
   setCurrentPage,
   lastElement,
   firstElement,
-  isActive,
   total,
 }) {
-  const totalPages = 5;
   return (
     <div className={styles.page_fluid}>
-      <div className={styles.container}>
-        <img className={styles.left} src={leftArrow} onClick={firstElement} />
+      {total ? (
+        <div className={styles.container}>
+          <img className={styles.left} src={leftArrow} onClick={firstElement} />
 
-        <ResponsivePagination
-          narrowBehaviour={dropEllipsis}
-          current={currentPage}
-          total={total}
-          onPageChange={setCurrentPage}
-          nextLabel={">"}
-          previousLabel={"<"}
-        />
+          <ResponsivePagination
+            narrowBehaviour={dropEllipsis}
+            current={currentPage}
+            total={total}
+            onPageChange={setCurrentPage}
+            nextLabel={">"}
+            previousLabel={"<"}
+          />
 
-        <img onClick={lastElement} className={styles.right} src={rightArrow} />
-      </div>
+          <img
+            onClick={lastElement}
+            className={styles.right}
+            src={rightArrow}
+          />
+        </div>
+      ) : null}
     </div>
   );
 }

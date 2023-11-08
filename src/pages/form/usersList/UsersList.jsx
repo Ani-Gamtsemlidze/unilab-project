@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import styles from "./Users.module.css";
+import React from "react";
+import styles from "./UsersList.module.css";
 
-export default function Users({ usersList }) {
+export default function UsersList({ usersList }) {
   return (
-    <section className={styles.table}>
-      <div style={{ display: "flex" }} className={styles.categories}>
-        <ul>
+    <section className={styles.listSection}>
+      <div className={styles.categories}>
+        <ul className={styles.categoriesList}>
           <li>სტუდენტის სახელი და გვარი</li>
           <li>სტატუსი</li>
           <li>სქესი</li>
@@ -17,13 +17,7 @@ export default function Users({ usersList }) {
           <li>დაბადების თარიღი</li>
         </ul>
       </div>
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-between",
-        }}
-      >
+      <div className={styles.userList}>
         {usersList.map((item) => (
           <ul key={item.id_number} className={styles.item}>
             <li>{item.full_name}</li>

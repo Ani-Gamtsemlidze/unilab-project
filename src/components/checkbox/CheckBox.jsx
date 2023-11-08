@@ -1,8 +1,9 @@
 import styles from "./CheckBox.module.css";
 import chevron from "../../assets/images/chevron-right.svg";
 import { UseForm } from "../../context/useFormContext";
+import { forwardRef, useEffect, useRef } from "react";
 
-export default function CheckBox() {
+const CheckBox = forwardRef((props, ref) => {
   const {
     toggleInactive,
     toggleActive,
@@ -22,7 +23,7 @@ export default function CheckBox() {
   return (
     <div>
       {isFilterActive ? (
-        <div className={styles.checkBox}>
+        <div className={styles.checkBox} ref={ref}>
           <div className={styles.status} onClick={handleStatus}>
             <img src={chevron} />
             <p>სტუდენტის სტატუსი</p>
@@ -79,4 +80,6 @@ export default function CheckBox() {
       ) : null}
     </div>
   );
-}
+});
+
+export default CheckBox;

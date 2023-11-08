@@ -43,6 +43,7 @@ function UseFormContext(props) {
     <formThemeContext.Provider
       value={{
         isFilterActive,
+        setIsFilterActive,
         handleFilterActive,
         toggleActive,
         isStatus,

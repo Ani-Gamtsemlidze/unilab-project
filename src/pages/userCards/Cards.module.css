@@ -19,14 +19,14 @@
   font-size: 45px;
 }
 .title {
-  height: 32px;
+  min-height: 32px;
 }
 .title h2 {
   font-size: 15px;
 }
 .body {
   margin-top: 20px;
-  min-height: 100px;
+  height: 130px;
 }
 .id {
   margin-top: 20px;

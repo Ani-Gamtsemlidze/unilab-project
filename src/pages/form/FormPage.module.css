@@ -41,14 +41,25 @@
   background-color: #fff;
   width: 263px;
   border-radius: 8px;
-  padding: 5px 0;
+  padding: 8px 0;
+  border: none;
+  outline: none;
 }
-
-.search img {
+.search::placeholder {
+  margin-left: 60px;
+  font-size: 20px;
+}
+.label {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.label img {
   width: 22px;
   height: 22px;
   object-fit: contain;
   margin-left: 9px;
+  position: absolute;
 }
 
 .users {
