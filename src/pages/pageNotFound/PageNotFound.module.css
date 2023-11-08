@@ -1,0 +1,8 @@
+.notFound {
+  margin-top: 50px;
+}
+.notFound p {
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
+}

@@ -25,9 +25,7 @@ export default function UsersList({ usersList }) {
             <li>{item.gender}</li>
             <li>{item.points}</li>
             <li>{item.id_number}</li>
-            <div>
-              <li>{item.mail}</li>
-            </div>
+            <li>{item.mail}</li>
             <li>{item.mobile_numbers}</li>
             <li>{item.address}</li>
             <li>{item.birth_day}</li>

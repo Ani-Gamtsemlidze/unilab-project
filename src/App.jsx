@@ -3,6 +3,7 @@ import { UseFormContext } from "./context/useFormContext";
 import FormPage from "./pages/form/formPage/FormPage";
 import LandingPage from "./pages/landing/LandingPage";
 import Login from "./pages/login/loginPage/Login";
+import PageNotFound from "./pages/pageNotFound/PageNotFound";
 import UserCards from "./pages/userCards/userCardsPage/UserCards";
 
 const router = createBrowserRouter([
@@ -22,11 +23,15 @@ const router = createBrowserRouter([
     path: "/cards",
     element: <UserCards />,
   },
+  {
+    path: "*",
+    element: <PageNotFound />,
+  },
 ]);
 function App() {
   return (
     <UseFormContext>
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
     </UseFormContext>
   );
 }
